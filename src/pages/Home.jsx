@@ -13,17 +13,14 @@ Notiflix.Notify.init({
 
 const Home = () => {
   const [films, setFilms] = useState([]);
-  const [error, setError] = useState('');
-  const [status, setStatus] = useState('stoped');
+  //   const [status, setStatus] = useState('stoped');
 
   useEffect(() => {
-    console.log(`useEffect`);
-
     function getFilms() {
       getPopularFilms()
         .then(data => {
           setFilms(prevState => [...prevState, ...data.results]);
-          setStatus('resolved');
+          //   setStatus('resolved');
           // setShowBtn(page < Math.ceil(data.totalHits / 12));
           // setFlag(false);
 
@@ -32,21 +29,19 @@ const Home = () => {
           );
         })
         .catch(err => {
-          setError(err);
-          setStatus('rejected');
-          Notiflix.Notify.success(error, status);
+          //   setStatus('rejected');
+          Notiflix.Notify.success(err);
         });
     }
 
     getFilms();
-  }, [error, status]);
+  }, []);
 
   return (
     <ul>
       {films.map(film => {
         const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500/';
         const IMG_URL = `${IMAGE_BASE_URL}${film.backdrop_path}`;
-        console.log(film.id);
 
         return (
           <NavLink to={`movies/${film.id}`}>

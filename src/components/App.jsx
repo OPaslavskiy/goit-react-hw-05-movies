@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from 'pages/Home';
-import SiteBar from './SideBar';
+import SiteBar from './SiteBar';
 import Movie from '../pages/Movie';
 
 export const App = () => {
