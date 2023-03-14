@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { getMovieById } from '../services/getMovieByID';
 
@@ -8,7 +8,7 @@ Notiflix.Notify.init({
   width: '420px',
   position: 'center-top',
   distance: '100px',
-  timeout: 1000,
+  timeout: 2000,
   fontSize: '20px',
 });
 
@@ -41,12 +41,22 @@ const Movie = () => {
       <>
         <img src={IMG_URL} alt={original_title} />
         <h1>{original_title}</h1>
-        <p>{release_date}</p>
-        <p>{vote_average}</p>
-        <p>{overview}</p>
-        <p>{Object.values(genres.map(genre => genre.name)).join(', ')}</p>
-        <NavLink>Cast</NavLink>
-        <NavLink>Reviews</NavLink>
+        <p>({release_date.slice(0, 4)})</p>
+        <p>
+          <span>Rating</span>
+          {vote_average.toFixed(1)}
+        </p>
+        <p>
+          <span>Overview</span>
+          {overview}
+        </p>
+        <p>
+          <span>Genres</span>
+          {Object.values(genres.map(genre => genre.name)).join(', ')}
+        </p>
+        <NavLink to="cast">Cast</NavLink>
+        <NavLink to="reviews">Reviews</NavLink>
+        <Outlet />
       </>
     );
   }
