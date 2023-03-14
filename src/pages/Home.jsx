@@ -19,17 +19,12 @@ const Home = () => {
     function getFilms() {
       getPopularFilms()
         .then(data => {
-          setFilms(prevState => [...prevState, ...data.results]);
-          //   setStatus('resolved');
-          // setShowBtn(page < Math.ceil(data.totalHits / 12));
-          // setFlag(false);
-
+          setFilms(data.results);
           Notiflix.Notify.success(
             `We have prepared for you the 20 best movies for today`
           );
         })
         .catch(err => {
-          //   setStatus('rejected');
           Notiflix.Notify.success(err);
         });
     }
