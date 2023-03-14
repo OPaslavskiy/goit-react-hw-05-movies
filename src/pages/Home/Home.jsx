@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { getPopularFilms } from 'services/getPopularMovies';
+import { MoviesList, MoviesItem, Image, FilmsName } from './Home.styled';
 
 import Notiflix from 'notiflix';
 Notiflix.Notify.init({
@@ -33,23 +34,23 @@ const Home = () => {
   }, []);
 
   return (
-    <ul>
+    <MoviesList>
       {films.map(film => {
         const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500/';
         const IMG_URL = `${IMAGE_BASE_URL}${film.backdrop_path}`;
 
         return (
           <NavLink to={`movies/${film.id}`}>
-            <li key={film.id}>
-              <h2>{film.original_title}</h2>
-              <img src={IMG_URL} alt={film.original_title} />
-            </li>
+            <MoviesItem key={film.id}>
+              <Image src={IMG_URL} alt={film.original_title} />
+              <FilmsName>{film.original_title}</FilmsName>
+            </MoviesItem>
           </NavLink>
         );
       })}
 
       <Outlet />
-    </ul>
+    </MoviesList>
   );
 };
 
