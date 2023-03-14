@@ -1,17 +1,24 @@
+import { Routes, Route, NavLink } from 'react-router-dom';
+import Home from 'pages/Home';
+
 export const App = () => {
-  const API_KEY = 'db72402e2e89e57b99e88c265b440972';
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="/">Номе</NavLink>
+          </li>
+          <li>
+            <NavLink to="movies">Movies</NavLink>
+          </li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<div>MOVIES</div>} />
+      </Routes>
+    </>
   );
 };
