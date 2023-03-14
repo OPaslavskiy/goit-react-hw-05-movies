@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { getPopularFilms } from 'services/getPopularFilms';
+import { getPopularFilms } from 'services/getPopularMovies';
 
 import Notiflix from 'notiflix';
 Notiflix.Notify.init({
@@ -39,7 +39,7 @@ const Home = () => {
     }
 
     getFilms();
-  }, []);
+  }, [error, status]);
 
   return (
     <ul>
