@@ -40,7 +40,7 @@ const Home = () => {
       }
     }
     getFilms();
-  }, []);
+  }, [status, error]);
 
   return (
     <ul>
