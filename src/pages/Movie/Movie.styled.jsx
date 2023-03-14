@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const GeneralBox = styled.ul`
   padding: 15px;
@@ -34,6 +35,7 @@ export const TitelBox = styled.div`
 export const FilmBox = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 25px;
 `;
 
 export const InformBox = styled.div`
@@ -51,6 +53,29 @@ export const Span = styled.span`
   margin-right: 5px;
 `;
 
-export const P = styled.p`
+export const Paragraph = styled.p`
   margin-bottom: 10px;
+`;
+
+export const ListAbout = styled.ul`
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  gap: 5px;
+`;
+
+export const Links = styled(NavLink)`
+  color: #ffaebb;
+  padding: 5px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0.03em;
+
+  &.active {
+    color: #382aff;
+    background-color: #ffaebb;
+    border-radius: 8px;
+  }
 `;

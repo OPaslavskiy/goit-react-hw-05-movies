@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getReviews } from 'services/getReviews';
+import { ReviewsList, Author, Response, ReviewsItem } from './Reviews.styled';
 
 import Notiflix from 'notiflix';
 Notiflix.Notify.init({
@@ -33,17 +34,15 @@ const Reviews = () => {
 
   if (flag) {
     return (
-      <ul>
+      <ReviewsList>
         {reviews.map(review => (
-          <li key={review.author}>
-            <b>
-              <p>{review.author}</p>
-            </b>
+          <ReviewsItem key={review.author}>
+            <Author>{review.author}</Author>
 
-            <p>{review.content}</p>
-          </li>
+            <Response>{review.content}</Response>
+          </ReviewsItem>
         ))}
-      </ul>
+      </ReviewsList>
     );
   }
 };

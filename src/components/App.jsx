@@ -4,8 +4,8 @@ import { Layout } from 'Layout';
 import Home from 'pages/Home/Home';
 import SiteBar from './SiteBar/SiteBar';
 import Movie from '../pages/Movie/Movie';
-import Casts from './Cast';
-import Reviews from './Reviews';
+import Casts from './Casts/Casts';
+import Reviews from './Reviews/Reviews';
 
 export const App = () => {
   return (

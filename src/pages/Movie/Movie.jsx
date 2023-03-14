@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { getMovieById } from '../../services/getMovieByID';
 import {
@@ -10,7 +10,9 @@ import {
   FilmBox,
   InformBox,
   Span,
-  P,
+  Paragraph,
+  Links,
+  ListAbout,
 } from './Movie.styled';
 
 import Notiflix from 'notiflix';
@@ -56,23 +58,29 @@ const Movie = () => {
               <FilmsName>{original_title}</FilmsName>
               <Year>({release_date.slice(0, 4)})</Year>
             </TitelBox>
-            <P>
+            <Paragraph>
               <Span>Rating:</Span>
               {vote_average.toFixed(1)}
-            </P>
-            <P>
+            </Paragraph>
+            <Paragraph>
               <Span>Overview:</Span>
               {overview}
-            </P>
-            <P>
+            </Paragraph>
+            <Paragraph>
               <Span>Genres:</Span>
               {Object.values(genres.map(genre => genre.name)).join(', ')}
-            </P>
+            </Paragraph>
+            <ListAbout>
+              <li>
+                <Links to="cast">Cast</Links>
+              </li>
+              <li>
+                <Links to="reviews">Reviews</Links>
+              </li>
+            </ListAbout>
           </InformBox>
         </FilmBox>
 
-        <NavLink to="cast">Cast</NavLink>
-        <NavLink to="reviews">Reviews</NavLink>
         <Outlet />
       </GeneralBox>
     );

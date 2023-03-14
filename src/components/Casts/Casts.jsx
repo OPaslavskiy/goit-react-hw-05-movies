@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getCast } from '../services/getCast';
-import noCastPhoto from '../images/noCastPhoto.png';
+import { getCast } from '../../services/getCast';
+import noCastPhoto from '../../images/noCastPhoto.png';
+import { CastsList, CastsItem, Span, Paragraph, Image } from './Casts.styled';
 
 import Notiflix from 'notiflix';
 Notiflix.Notify.init({
@@ -12,7 +13,7 @@ Notiflix.Notify.init({
   fontSize: '20px',
 });
 
-const Cast = () => {
+const Casts = () => {
   const { id } = useParams();
   const [casts, setCasts] = useState({});
   const [flag, setFlag] = useState(false);
@@ -34,10 +35,10 @@ const Cast = () => {
 
   if (flag) {
     return (
-      <ul>
+      <CastsList>
         {casts.cast.map(cast => (
-          <li key={cast.name}>
-            <img
+          <CastsItem key={cast.name}>
+            <Image
               src={
                 cast.profile_path
                   ? IMAGE_BASE_URL + cast.profile_path
@@ -45,15 +46,15 @@ const Cast = () => {
               }
               alt={cast.name}
             />
-            <span>Аctor's name</span>
-            <p>{cast.name}</p>
-            <span>Сharacter</span>
-            <p>{cast.character}</p>
-          </li>
+            <Span>Аctor's name:</Span>
+            <Paragraph>{cast.name}</Paragraph>
+            <Span>Сharacter:</Span>
+            <Paragraph>{cast.character}</Paragraph>
+          </CastsItem>
         ))}
-      </ul>
+      </CastsList>
     );
   }
 };
 
-export default Cast;
+export default Casts;
