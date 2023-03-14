@@ -14,7 +14,7 @@ export const MoviesItem = styled.li`
   width: 350px;
   margin-top: 10px;
   background-color: #a8daf7;
-  border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 15px;
 `;
 
 export const Image = styled.img`

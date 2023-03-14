@@ -10,7 +10,7 @@ export const Header = styled.header`
 export const NavigationList = styled.ul`
   display: flex;
   padding: 25px;
-  margin-left: 30px;
+  margin-left: 50px;
 `;
 
 export const Links = styled(NavLink)`
@@ -33,4 +33,5 @@ export const Lebel = styled.a`
   font-size: 15px;
   font-weight: 500;
   color: #7fc9f3;
+  margin-left: 80px;
 `;

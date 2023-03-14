@@ -1,7 +1,17 @@
 import { useEffect, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { getMovieById } from '../services/getMovieByID';
+import { getMovieById } from '../../services/getMovieByID';
+import {
+  GeneralBox,
+  FilmsName,
+  TitelBox,
+  Year,
+  FilmBox,
+  InformBox,
+  Span,
+  P,
+} from './Movie.styled';
 
 import Notiflix from 'notiflix';
 Notiflix.Notify.init({
@@ -38,26 +48,33 @@ const Movie = () => {
     const { original_title, release_date, vote_average, overview, genres } =
       movie;
     return (
-      <>
-        <img src={IMG_URL} alt={original_title} />
-        <h1>{original_title}</h1>
-        <p>({release_date.slice(0, 4)})</p>
-        <p>
-          <span>Rating</span>
-          {vote_average.toFixed(1)}
-        </p>
-        <p>
-          <span>Overview</span>
-          {overview}
-        </p>
-        <p>
-          <span>Genres</span>
-          {Object.values(genres.map(genre => genre.name)).join(', ')}
-        </p>
+      <GeneralBox>
+        <FilmBox>
+          <img src={IMG_URL} alt={original_title} />
+          <InformBox>
+            <TitelBox>
+              <FilmsName>{original_title}</FilmsName>
+              <Year>({release_date.slice(0, 4)})</Year>
+            </TitelBox>
+            <P>
+              <Span>Rating:</Span>
+              {vote_average.toFixed(1)}
+            </P>
+            <P>
+              <Span>Overview:</Span>
+              {overview}
+            </P>
+            <P>
+              <Span>Genres:</Span>
+              {Object.values(genres.map(genre => genre.name)).join(', ')}
+            </P>
+          </InformBox>
+        </FilmBox>
+
         <NavLink to="cast">Cast</NavLink>
         <NavLink to="reviews">Reviews</NavLink>
         <Outlet />
-      </>
+      </GeneralBox>
     );
   }
 };
