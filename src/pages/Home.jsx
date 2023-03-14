@@ -32,9 +32,10 @@ const Home = () => {
               `We have prepared for you the 20 best movies for today`
             );
           })
-          .catch(error => {
-            setError(error);
+          .catch(err => {
+            setError(err);
             setStatus('rejected');
+            Notiflix.Notify.success(error);
           });
       }
     }
