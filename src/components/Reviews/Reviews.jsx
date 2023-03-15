@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getReviews } from 'services/getReviews';
+import { getReviews } from '../../services/getFetch';
 import {
   ReviewsList,
   Author,

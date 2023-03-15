@@ -5,6 +5,7 @@ export const GeneralBox = styled.ul`
   padding: 15px;
   gap: 10px;
   margin-bottom: 65px;
+  width: 100%;
 `;
 
 export const FilmsName = styled.h1`
@@ -37,6 +38,7 @@ export const FilmBox = styled.div`
   align-items: center;
   margin-bottom: 25px;
   margin-top: 15px;
+  width: 100%;
 `;
 
 export const InformBox = styled.div`

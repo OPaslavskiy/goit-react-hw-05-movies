@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import { getPopularFilms } from 'services/getPopularMovies';
+import { getPopularFilms } from '../../services/getFetch';
 import { MoviesList, MoviesItem, Image, FilmsName } from './Home.styled';
 
 import Notiflix from 'notiflix';

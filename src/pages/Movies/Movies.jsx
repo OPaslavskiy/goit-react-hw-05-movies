@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, NavLink, useLocation } from 'react-router-dom';
-import getMovies from '../../services/getMovies';
+import { getMovies } from '../../services/getFetch';
 import {
   SearchFilmsList,
   SearchFilmsItem,

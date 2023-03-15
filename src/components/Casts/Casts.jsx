@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getCast } from '../../services/getCast';
+import { getCast } from '../../services/getFetch';
 import noCastPhoto from '../../images/noCastPhoto.png';
 import { CastsList, CastsItem, Span, Paragraph, Image } from './Casts.styled';
 

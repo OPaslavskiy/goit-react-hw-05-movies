@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import noMoviePhoto from '../../images/noMoviePhoto.png';
-import { getMovieById } from '../../services/getMovieByID';
+import { getMovieById } from '../../services/getFetch';
 import {
   GeneralBox,
   FilmsName,
@@ -36,6 +36,7 @@ const Movie = () => {
       try {
         getMovieById(id).then(data => {
           setMovie(data);
+          console.log(data);
           setFlag(true);
         });
       } catch (err) {
