@@ -11,7 +11,7 @@ export const MoviesList = styled.ul`
 `;
 
 export const MoviesItem = styled.li`
-  width: 400px;
+  width: 350px;
   margin-top: 10px;
   background-color: #a8daf7;
   border-bottom-left-radius: 15px;
@@ -45,7 +45,7 @@ export const MoviesItem = styled.li`
 `;
 
 export const Image = styled.img`
-  width: 400px;
+  width: 350px;
 `;
 
 export const FilmsName = styled.h2`
