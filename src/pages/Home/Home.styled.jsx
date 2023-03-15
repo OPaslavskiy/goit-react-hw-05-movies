@@ -11,14 +11,14 @@ export const MoviesList = styled.ul`
 `;
 
 export const MoviesItem = styled.li`
-  width: 350px;
+  width: 400px;
   margin-top: 10px;
   background-color: #a8daf7;
   border-bottom-left-radius: 15px;
 `;
 
 export const Image = styled.img`
-  width: 350px;
+  width: 400px;
 `;
 
 export const FilmsName = styled.h2`
@@ -29,4 +29,5 @@ export const FilmsName = styled.h2`
   letter-spacing: 0.03em;
   padding-left: 15px;
   color: #382aff;
+  margin-top: -5px;
 `;

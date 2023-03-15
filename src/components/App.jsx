@@ -6,6 +6,7 @@ import SiteBar from './SiteBar/SiteBar';
 import Movie from '../pages/Movie/Movie';
 import Casts from './Casts/Casts';
 import Reviews from './Reviews/Reviews';
+import Movies from 'pages/Movies/Movies';
 
 export const App = () => {
   return (
@@ -14,7 +15,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<SiteBar />}>
           <Route index element={<Home />} />
-          <Route path="/movies" element={<div>MOVIES</div>} />
+          <Route path="/movies" element={<Movies />} />
           <Route path="/movies/:id" element={<Movie />}>
             <Route path="cast" element={<Casts />} />
             <Route path="reviews" element={<Reviews />} />
