@@ -35,3 +35,9 @@ export const Author = styled.p`
 export const Response = styled.p`
   margin-left: 25px;
 `;
+
+export const NoReviews = styled.p`
+  color: #382aff;
+  font-weight: 600;
+  font-size: 16px;
+`;

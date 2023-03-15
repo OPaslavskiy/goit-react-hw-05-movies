@@ -53,6 +53,7 @@ export const FormButton = styled.button`
   border-radius: 8px;
   margin-left: 15px;
   font-weight: 800;
+  cursor: pointer;
 `;
 
 export const Form = styled.form`

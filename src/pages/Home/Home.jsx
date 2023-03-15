@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { getPopularFilms } from 'services/getPopularMovies';
 import { MoviesList, MoviesItem, Image, FilmsName } from './Home.styled';
 
 import Notiflix from 'notiflix';
 Notiflix.Notify.init({
-  width: '300px',
+  width: '420px',
   position: 'center-top',
   distance: '100px',
   timeout: 1500,
@@ -14,6 +14,7 @@ Notiflix.Notify.init({
 
 const Home = () => {
   const [films, setFilms] = useState([]);
+  const location = useLocation();
   //   const [status, setStatus] = useState('stoped');
 
   useEffect(() => {
@@ -40,7 +41,7 @@ const Home = () => {
         const IMG_URL = `${IMAGE_BASE_URL}${film.backdrop_path}`;
 
         return (
-          <NavLink to={`movies/${film.id}`}>
+          <NavLink to={`movies/${film.id}`} state={{ from: location }}>
             <MoviesItem key={film.id}>
               <Image src={IMG_URL} alt={film.original_title} />
               <FilmsName>{film.original_title}</FilmsName>

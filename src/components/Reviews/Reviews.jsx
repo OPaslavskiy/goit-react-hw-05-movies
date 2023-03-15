@@ -1,7 +1,13 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getReviews } from 'services/getReviews';
-import { ReviewsList, Author, Response, ReviewsItem } from './Reviews.styled';
+import {
+  ReviewsList,
+  Author,
+  Response,
+  ReviewsItem,
+  NoReviews,
+} from './Reviews.styled';
 
 import Notiflix from 'notiflix';
 Notiflix.Notify.init({
@@ -23,7 +29,6 @@ const Reviews = () => {
         getReviews(id).then(data => {
           setReviews(data.results);
           setFlag(true);
-          console.log(data);
         });
       } catch (err) {
         Notiflix.Notify.failure(err);
@@ -35,13 +40,19 @@ const Reviews = () => {
   if (flag) {
     return (
       <ReviewsList>
-        {reviews.map(review => (
-          <ReviewsItem key={review.author}>
-            <Author>{review.author}</Author>
+        {reviews.length > 0 ? (
+          reviews.map(review => (
+            <ReviewsItem key={review.author}>
+              <Author>{review.author}</Author>
 
-            <Response>{review.content}</Response>
-          </ReviewsItem>
-        ))}
+              <Response>{review.content}</Response>
+            </ReviewsItem>
+          ))
+        ) : (
+          <NoReviews>
+            Sorry, but there are no reviews for this movie yet.
+          </NoReviews>
+        )}
       </ReviewsList>
     );
   }

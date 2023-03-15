@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, NavLink } from 'react-router-dom';
+import { useSearchParams, NavLink, useLocation } from 'react-router-dom';
 import getMovies from '../../services/getMovies';
 import {
   SearchFilmsList,
@@ -23,6 +23,7 @@ const Movies = () => {
   const [listOfFilms, setListOfFilms] = useState([]);
   const [flag, setFlag] = useState(false);
   const query = searchParams.get('query');
+  const location = useLocation();
 
   const formSubmit = e => {
     e.preventDefault();
@@ -36,9 +37,15 @@ const Movies = () => {
         .then(data => {
           setListOfFilms(data.results);
           setFlag(true);
-          Notiflix.Notify.success(
-            `We found 20 of the most suitable movie optionsy`
-          );
+          if (data.results.length > 0) {
+            Notiflix.Notify.success(
+              `We have found the movies most relevant to your request`
+            );
+          } else {
+            Notiflix.Notify.failure(
+              'Sorry, but nothing was found for your query'
+            );
+          }
         })
         .catch(err => {
           Notiflix.Notify.failure(err);
@@ -53,7 +60,7 @@ const Movies = () => {
     <div>
       <Form onSubmit={formSubmit}>
         <FormInput autoComplete="off" name="query" type="text" autoFocus />
-        <FormButton type="button">Search</FormButton>
+        <FormButton type="submit">Search</FormButton>
       </Form>
 
       <div>
@@ -62,7 +69,7 @@ const Movies = () => {
             {listOfFilms.map(film => {
               return (
                 <SearchFilmsItem>
-                  <NavLink to={`${film.id}`}>
+                  <NavLink to={`${film.id}`} state={{ from: location }}>
                     {film.title} ({film.release_date.slice(0, 4)})
                   </NavLink>
                 </SearchFilmsItem>

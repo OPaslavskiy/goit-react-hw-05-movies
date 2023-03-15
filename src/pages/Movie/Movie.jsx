@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
+import noMoviePhoto from '../../images/noMoviePhoto.png';
 import { getMovieById } from '../../services/getMovieByID';
 import {
   GeneralBox,
@@ -29,6 +29,7 @@ const Movie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
   const [flag, setFlag] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     async function getMovie() {
@@ -52,9 +53,12 @@ const Movie = () => {
       movie;
     return (
       <GeneralBox>
-        <BackButton>Go back</BackButton>
+        <BackButton to={location.state.from}>Go back</BackButton>
         <FilmBox>
-          <img src={IMG_URL} alt={original_title} />
+          <img
+            src={movie.backdrop_path ? IMG_URL : noMoviePhoto}
+            alt={original_title}
+          />
           <InformBox>
             <TitelBox>
               <FilmsName>{original_title}</FilmsName>
@@ -74,15 +78,18 @@ const Movie = () => {
             </Paragraph>
             <ListAbout>
               <li>
-                <Links to="cast">Cast</Links>
+                <Links to="cast" state={{ from: location.state.from }}>
+                  Cast
+                </Links>
               </li>
               <li>
-                <Links to="reviews">Reviews</Links>
+                <Links to="reviews" state={{ from: location.state.from }}>
+                  Reviews
+                </Links>
               </li>
             </ListAbout>
           </InformBox>
         </FilmBox>
-
         <Outlet />
       </GeneralBox>
     );
