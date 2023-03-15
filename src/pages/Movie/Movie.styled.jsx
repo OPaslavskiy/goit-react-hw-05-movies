@@ -93,3 +93,8 @@ export const BackButton = styled(Link)`
   margin-left: 25px;
   font-weight: 400;
 `;
+
+export const Image = styled.img`
+  width: 500px;
+  height: auto;
+`;

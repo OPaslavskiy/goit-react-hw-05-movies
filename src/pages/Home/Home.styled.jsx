@@ -46,6 +46,7 @@ export const MoviesItem = styled.li`
 
 export const Image = styled.img`
   width: 350px;
+  height: auto;
 `;
 
 export const FilmsName = styled.h2`

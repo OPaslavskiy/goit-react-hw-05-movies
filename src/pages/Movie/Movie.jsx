@@ -14,6 +14,7 @@ import {
   Links,
   ListAbout,
   BackButton,
+  Image,
 } from './Movie.styled';
 
 import Notiflix from 'notiflix';
@@ -56,7 +57,7 @@ const Movie = () => {
       <GeneralBox>
         <BackButton to={location.state.from}>Go back</BackButton>
         <FilmBox>
-          <img
+          <Image
             src={movie.backdrop_path ? IMG_URL : noMoviePhoto}
             alt={original_title}
           />
