@@ -26,7 +26,7 @@ const Reviews = () => {
           console.log(data);
         });
       } catch (err) {
-        Notiflix.Notify.success(err);
+        Notiflix.Notify.failure(err);
       }
     }
     getCasts();

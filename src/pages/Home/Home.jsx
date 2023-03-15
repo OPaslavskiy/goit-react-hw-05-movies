@@ -5,7 +5,7 @@ import { MoviesList, MoviesItem, Image, FilmsName } from './Home.styled';
 
 import Notiflix from 'notiflix';
 Notiflix.Notify.init({
-  width: '420px',
+  width: '300px',
   position: 'center-top',
   distance: '100px',
   timeout: 1500,
@@ -26,7 +26,7 @@ const Home = () => {
           );
         })
         .catch(err => {
-          Notiflix.Notify.success(err);
+          Notiflix.Notify.failure(err);
         });
     }
 

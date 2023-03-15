@@ -13,6 +13,7 @@ import {
   Paragraph,
   Links,
   ListAbout,
+  BackButton,
 } from './Movie.styled';
 
 import Notiflix from 'notiflix';
@@ -37,7 +38,7 @@ const Movie = () => {
           setFlag(true);
         });
       } catch (err) {
-        Notiflix.Notify.success(err);
+        Notiflix.Notify.failure(err);
       }
     }
     getMovie();
@@ -51,6 +52,7 @@ const Movie = () => {
       movie;
     return (
       <GeneralBox>
+        <BackButton>Go back</BackButton>
         <FilmBox>
           <img src={IMG_URL} alt={original_title} />
           <InformBox>

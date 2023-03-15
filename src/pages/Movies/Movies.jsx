@@ -11,10 +11,10 @@ import {
 
 import Notiflix from 'notiflix';
 Notiflix.Notify.init({
-  width: '420px',
+  width: '550px',
   position: 'center-top',
   distance: '100px',
-  timeout: 1500,
+  timeout: 2000,
   fontSize: '20px',
 });
 
@@ -37,11 +37,11 @@ const Movies = () => {
           setListOfFilms(data.results);
           setFlag(true);
           Notiflix.Notify.success(
-            `We have prepared for you the _____ best movies for today`
+            `We found 20 of the most suitable movie optionsy`
           );
         })
         .catch(err => {
-          Notiflix.Notify.success(err);
+          Notiflix.Notify.failure(err);
         });
     }
     if (query) {
@@ -60,7 +60,6 @@ const Movies = () => {
         {(flag && listOfFilms.length) > 0 ? (
           <SearchFilmsList>
             {listOfFilms.map(film => {
-              console.log(film.title);
               return (
                 <SearchFilmsItem>
                   <NavLink to={`${film.id}`}>

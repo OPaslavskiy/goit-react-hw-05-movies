@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 export const GeneralBox = styled.ul`
   padding: 15px;
@@ -36,6 +36,7 @@ export const FilmBox = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 25px;
+  margin-top: 15px;
 `;
 
 export const InformBox = styled.div`
@@ -78,4 +79,15 @@ export const Links = styled(NavLink)`
     background-color: #ffaebb;
     border-radius: 8px;
   }
+`;
+
+export const BackButton = styled(Link)`
+  padding: 10px;
+  font-size: 12px;
+  color: #382aff;
+  border: 0px;
+  background-color: #ffaebb;
+  border-radius: 8px;
+  margin-left: 25px;
+  font-weight: 400;
 `;

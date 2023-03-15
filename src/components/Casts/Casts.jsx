@@ -26,7 +26,7 @@ const Casts = () => {
           setFlag(true);
         });
       } catch (err) {
-        Notiflix.Notify.success(err);
+        Notiflix.Notify.failure(err);
       }
     }
     getCasts();
