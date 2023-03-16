@@ -4,7 +4,7 @@ import { GlobalStyle } from '../GlobalStyle';
 import { Layout } from 'Layout';
 
 // import Home from 'pages/Home/Home';
-import SiteBar from './SiteBar/SiteBar';
+// import SiteBar from './SiteBar/SiteBar';
 // import Movie from '../pages/Movie/Movie';
 // import Casts from './Casts/Casts';
 // import Reviews from './Reviews/Reviews';
@@ -12,7 +12,7 @@ import SiteBar from './SiteBar/SiteBar';
 // import NotFound from 'pages/NotFound/NotFound';
 
 const Home = lazy(() => import('pages/Home/Home'));
-// const SiteBar = lazy(() => import('./SiteBar/SiteBar'));
+const SiteBar = lazy(() => import('./SiteBar/SiteBar'));
 const Movie = lazy(() => import('../pages/Movie/Movie'));
 const Movies = lazy(() => import('../pages/Movies/Movies'));
 const Casts = lazy(() => import('./Casts/Casts.jsx'));
