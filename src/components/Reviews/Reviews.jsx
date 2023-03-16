@@ -20,7 +20,7 @@ Notiflix.Notify.init({
 
 const Reviews = () => {
   const { id } = useParams();
-  const [reviews, setReviews] = useState({});
+  const [reviews, setReviews] = useState([]);
   const [flag, setFlag] = useState(false);
 
   useEffect(() => {

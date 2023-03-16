@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, NavLink, useLocation } from 'react-router-dom';
+import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import { getMovies } from '../../services/getFetch';
 import {
   SearchFilmsList,
@@ -69,9 +69,9 @@ const Movies = () => {
             {listOfFilms.map(film => {
               return (
                 <SearchFilmsItem>
-                  <NavLink to={`${film.id}`} state={{ from: location }}>
+                  <Link to={`${film.id}`} state={{ from: location }}>
                     {film.title} ({film.release_date.slice(0, 4)})
-                  </NavLink>
+                  </Link>
                 </SearchFilmsItem>
               );
             })}

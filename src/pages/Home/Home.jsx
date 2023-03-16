@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { getPopularFilms } from '../../services/getFetch';
 import { MoviesList, MoviesItem, Image, FilmsName } from './Home.styled';
 
@@ -41,12 +41,12 @@ const Home = () => {
         const IMG_URL = `${IMAGE_BASE_URL}${film.backdrop_path}`;
 
         return (
-          <NavLink to={`movies/${film.id}`} state={{ from: location }}>
+          <Link to={`movies/${film.id}`} state={{ from: location }}>
             <MoviesItem key={film.id}>
               <Image src={IMG_URL} alt={film.original_title} />
               <FilmsName>{film.original_title}</FilmsName>
             </MoviesItem>
-          </NavLink>
+          </Link>
         );
       })}
 
