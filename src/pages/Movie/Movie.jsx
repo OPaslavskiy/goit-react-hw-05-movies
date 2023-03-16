@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Suspense } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import noMoviePhoto from '../../images/noMoviePhoto.png';
 import { getMovieById } from '../../services/getFetch';
@@ -37,7 +38,6 @@ const Movie = () => {
       try {
         getMovieById(id).then(data => {
           setMovie(data);
-          console.log(data);
           setFlag(true);
         });
       } catch (err) {
@@ -92,7 +92,9 @@ const Movie = () => {
             </ListAbout>
           </InformBox>
         </FilmBox>
-        <Outlet />
+        <Suspense fallback={<div>Loading subpage...</div>}>
+          <Outlet />
+        </Suspense>
       </GeneralBox>
     );
   }

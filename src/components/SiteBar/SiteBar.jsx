@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 import { Header, NavigationList, Links, Lebel } from './SiteBar.styled';
 
 const SiteBar = () => {
@@ -18,7 +19,9 @@ const SiteBar = () => {
           </NavigationList>
         </nav>
       </Header>
-      <Outlet />
+      <Suspense fallback={<div>Loading subpage...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
